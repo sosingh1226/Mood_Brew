@@ -55,3 +55,4 @@ document.getElementById("option3").addEventListener("click", function(){
 
 document.getElementById("option4").addEventListener("click", function(){
     console.log("hiiii")
+})
