@@ -5,72 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
   </head>
   <body>
 
-    <div class="off-canvas-fixed">
-      <div class="off-canvas-fixed-inner" data-off-canvas-wrapper>
-        <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
-          <div class="row column">
+    <div class="holy-grail-grid">
+      <div class="holy-grail-header" id="title">
+        <h1></h1><img class="img01" src="./assets/top.gif"> <span class="txt01">Mo<span class="txt02">od Br</span>ew</span></h1><br>
+      
+      </div>
+    
+      <div class="holy-grail-left" style="align-content: center;">
+        <h3>Pick your mood</h3>
+        <ul>
+          <li class="bullet"><a href="#">Game day <br><img class="thumbnail" src="./assets/gameday.png"></a></li>
+          <hr>
+          <li><a href="#">Breakup<br><img class="thumbnail" src="./assets/breakup.png"></a></li>
+          <hr>
+          <li><a href="#">My Code works<br><img class="thumbnail" src="./assets/codeworks.png"></a></li>
+          <hr>
+          <li>Wildcard<br><img id="wildcard" class="thumbnail" src="./assets/wildcard.PNG"></li>
+
+    
+        </ul>
+      </div>
+
+      <div class="holy-grail-middle" style="float:center">
+        <h3> Drink of the Day</h3>
+          A coin flip simulation that allows you to pick out specific drink type based on your mood. Select your mood on the left and the coin image below to reveal your drink for the day
+          <hr>
+          
+            <img class="thumbnail" id="img03" src="http://via.placeholder.com/180x180">
+            <img id="img04" src="./assets/spinnigncoin.webp">
+            <img class="thumbnail" id="img05" src="http://via.placeholder.com/180x180">
             <br>
-            <img class="thumbnail" src="./assets/gameday.png" >
-            <h5>Game Day</h5>
-          </div>
-          <div class="row column">
-            <br>
-            <img class="thumbnail" src="./assets/breakup.png">
-            <h5>Breakup</h5>
-          </div>
-
-          <div class="row column">
-            <br>
-            <img class="thumbnail" src="./assets/codeworks.png">
-            <h5>My code works</h5>
-          </div>
-        </div>
-
-
-        <div class="off-canvas-content" data-off-canvas-content>
-          <div class="title-bar hide-for-large">
-            <div class="title-bar-left">
-            </div>
-
-
-          </div>
-          <div class="callout primary">
-            <div class="row column">
-              <h1>Mood Brew</h1>
-              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla.</p>
-            </div>
-          </div>
-          <div class="row small-up-2 medium-up-3 large-up-4"  id="INSERTJS LINK"> 
-           
-           <!-- JS CONTENT GOES HERE -->
-           
-           
-
-        <!-- IGNORE THIS PART -->
-            <!-- <div class="column">
-              <img class="thumbnail" src="https://placehold.it/550x550">
-              <h5>My Site</h5>
-            </div>
-            <div class="column">
-              <img class="thumbnail" src="https://placehold.it/550x550">
-              <h5>My Site</h5>
-            </div>
-            <div class="column">
-              <img class="thumbnail" src="https://placehold.it/550x550">
-              <h5>My Site</h5>
-            </div> -->
-          </div> 
+            
+          
+      </div>
+    
+      <div class="holy-grail-right">
+       <img img src="./assets/img01.gif" alt="image from http://decentscraps.blogspot.com">
+      </div>
+    
+      <div class="holy-grail-footer">
+        <h6> Application brought to you by the Mongo Maniacs Group </h>
+      </div>
+    
+    </div>
          
 
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
+     <script>$(document).foundation();</script>
+     <script src="./assets/script.js"></script>
   </body>
 </html>
 
