@@ -1,48 +1,15 @@
-// Navbar-Kailee
+// declaring initial variables
+var gameDay = document.querySelector('#gameDay')
+var breakUp = document.querySelector('#breakUp')
+var codeWorks = document.querySelector('#codeWorks')
+var optG = document.querySelector('#imageGin')
+var optV = document.querySelector('#imageVodka')
+var optR = document.querySelector('#imageRum')
+var optT = document.querySelector('#imageTequilla')
 
-// variables
-// var gameDay = document.getElementById(option1)
-
-// var breakUp = document.getElementById(option2)
-
-// var codeWorks = document.getElementById(option3)
-
-// var wildCard = document.getElementById(option4)
-
-// array for drinks
-// var drinks = [
-//     {
-//         Type:"Game Day",
-//         Alcohol: ["Tequila", "Gin"]
-//     },
-//     {
-//         Type: "Break Up",
-//         Alcohol: ["Tequila", "Rum"]
-//     },
-//     {
-//         Type: "My Code Works",
-//         Alcohol: ["Gin", "Vodka"]
-//     }
-
-// ]
-
-// Function 
-// function getDrink(){
-    // show choices function
-
-// }
-
-// Show Drink outcome from categories
-// var alcoholoption1 = document.querySelector("#alcoholoption1")
-// var alcoholoption2 = document.querySelector("#alcoholoption2")
-
-
-// event listener for category buttons
-
-document.getElementById("gameDay").addEventListener("click", function(event){
+// game day event listener
+gameDay.addEventListener("click", function (event) {
     event.preventDefault();
-
-    console.log("hello");
     optG.style.visibility = "visible";
     optT.style.visibility = "visible";
     optV.style.visibility = "hidden";
@@ -52,13 +19,13 @@ document.getElementById("gameDay").addEventListener("click", function(event){
     var t = optT;
 
     coinFlipGD(h, t);
-})
 
+});
 
-document.getElementById("breakUp").addEventListener("click", function(event){
+// breakup event listener
+
+breakUp.addEventListener("click", function (event) {
     event.preventDefault();
-
-    console.log("hayyy");
     optG.style.visibility = "hidden";
     optT.style.visibility = "visible";
     optV.style.visibility = "hidden";
@@ -67,14 +34,14 @@ document.getElementById("breakUp").addEventListener("click", function(event){
     var h = optT;
     var t = optR;
 
-    coinFlip(h, t);
-})
+    coinFlipBU(h, t);
 
+});
 
-document.getElementById("codeWorks").addEventListener("click", function(event){
+// my code works event listeners
+
+codeWorks.addEventListener("click", function (event) {
     event.preventDefault();
-
-    console.log("hiiii");
     optG.style.visibility = "visible";
     optT.style.visibility = "hidden";
     optV.style.visibility = "visible";
@@ -83,14 +50,11 @@ document.getElementById("codeWorks").addEventListener("click", function(event){
     var h = optG;
     var t = optV;
 
-    coinFlip(h, t);
-})
+    coinFlipCW(h, t);
 
-// document.getElementById("option4").addEventListener("click", function(){
-//     console.log("hiiii")
-// })
+});
 
-// BY SOUMYA
+// }
 
 // coinflip function
 
@@ -116,10 +80,78 @@ function coinFlipGD(h, t){
             console.log ("Gin")
             // console.log (ginRecipe.innerHTML)
         }
-        else if (coinResult.outcome === "Tails") 
+        else {
+
             tcocktailSurprise();
             console.log ("Tequilla")
             // console.log (TequillaRecipe.innerHTML)
+        }
+    })
+    .catch(err => {
+        console.error(err);
+    })
+}
+
+function coinFlipCW(h, t){
+    fetch("https://coin-flip1.p.rapidapi.com/headstails", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
+            "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
+        }
+    })
+    .then(function(resp) { return resp.json() }) 
+    .then(coinResult => {
+        
+        h = ginDrinkICON.innerHTML
+        t = vodkaDrinkICON.innerHTML
+
+        console.log(coinResult);
+
+        if (coinResult.outcome === "Heads") {
+            
+            gcocktailSurprise(); 
+            console.log ("Gin")
+        }
+        else {
+
+            vcocktailSurprise();
+            console.log ("Vodka")
+        }
+    })
+    .catch(err => {
+        console.error(err);
+    })
+}
+
+function coinFlipBU(h, t){
+    fetch("https://coin-flip1.p.rapidapi.com/headstails", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
+            "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
+        }
+    })
+    .then(function(resp) { return resp.json() }) 
+    .then(coinResult => {
+        
+        h = rumDrinkICON.innerHTML
+        t = TequillaDrinkICON.innerHTML
+
+        console.log(coinResult);
+
+        if (coinResult.outcome === "Heads") {
+            
+            rcocktailSurprise(); 
+            console.log ("Rum")
+            // console.log (ginRecipe.innerHTML)
+        }
+        else {
+
+            tcocktailSurprise();
+            console.log ("Tequilla")
+            // console.log (TequillaRecipe.innerHTML)
+        }
     })
     .catch(err => {
         console.error(err);
@@ -127,7 +159,7 @@ function coinFlipGD(h, t){
 }
 
 // COIN FLIP END
-
+ 
 // FOR GIN START
 // declaring GIN variables
 
@@ -166,114 +198,36 @@ function gcocktailSurprise () {
         rand_drink = getRandomNumber(0, max)        
         console.log(rand_drink)
 
-        ginDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-        ginDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-        ginDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
-
-        var ginID = ginDrinkID.innerHTML;
-
-        console.log (ginDrinkNAME.innerHTML)
-        console.log (ginDrinkICON.innerHTML)
-        console.log (ginID)
-
         if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Gin") {
             console.log (data.drinks[rand_drink].strInstructions)
         }
 
-        for (let i = 0; i < data.drinks.length; i++) {
+        ginDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
+        ginDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
+        ginDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
 
-            if (ginID === data.drinks[i].idDrink) {
-                ginRecipe.innerHTML = data.drinks[i].strInstructions; 
-            }
-            console.log (ginRecipe.innerHTML) 
-        }
+        console.log (ginDrinkNAME.innerHTML);
+        console.log (ginDrinkICON.innerHTML);
+        console.log (ginDrinkID.innerHTML);
+
 	})
 	.catch(function() {
 
 	});
 }
 
-// function fullRecipe(ginID) {
-//     fetch ('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-//     .then (function (resp) { return resp.json() })
-//     .then(function(newdata) {
-
-//         for (let i = 0; i < newdata.drinks.length; i++) {
-
-//             if (ginID === newdata.drinks[i].idDrink) {
-//                 ginRecipe.innerHTML = newdata.drinks[i].strInstructions; 
-//             }
-//             console.log (ginRecipe.innerHTML) 
-//         }
-//     })
-// 	.catch(function() {
-//     });
-// }
-
 // FOR GIN END
 
 // FOR VODKA START
+// declaring all VODKA variables
 
-// function gcocktailSurprise () {
-// 	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-//     .then (function (resp) { return resp.json() })
-//     .then(function(data) {
+var alcVodka = document.querySelector('#alcVodka')
+var vodkaDrinkNAME = document.querySelector("#vodkaDrinkNAME")
+var vodkaDrinkICON = document.querySelector("#vodkaDrinkICON")
+var vodkaDrinkID = document.querySelector("#vodkaDrinkID")
+var vodkaRecipe = document.querySelector("vodkaRecipe")
 
-//         var max = data.drinks.length
-//         console.log(max)
-
-//         rand_drink = getRandomNumber(0, max)        
-//         console.log(rand_drink)
-
-//         ginDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-//         ginDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-//         ginDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
-
-//         var ginID = ginDrinkID.innerHTML;
-
-//         console.log (ginDrinkNAME.innerHTML)
-//         console.log (ginDrinkICON.innerHTML)
-//         console.log (ginID)
-
-//         if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Vodka") {
-//             console.log (data.drinks[rand_drink].strInstructions)
-//         }
-
-//         fullRecipe(ginID)
-// 	})
-// 	.catch(function() {
-
-// 	});
-// }
-
-// function fullRecipe(ginID) {
-//     fetch ('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-//     .then (function (resp) { return resp.json() })
-//     .then(function(newdata) {
-
-//         for (let i = 0; i < newdata.drinks.length; i++) {
-
-//             if (ginID === newdata.drinks[i].idDrink) {
-//                 ginRecipe.innerHTML = newdata.drinks[i].strInstructions; 
-//             }
-//             console.log (teqRecipe.innerHTML) 
-//         }
-//     })
-// 	.catch(function() {
-//     });
-// }
-
-// FOR VODKA END
-
-// FOR TEQUILLA START
-
-// declaring TEQUILLA variables
-var TequillaRecipe = document.querySelector("TequillaRecipe")
-var TequillaDrinkICON = document.querySelector("#TequillaDrinkICON")
-
-// CALLING RANDOM TEQUILLA COCKTAIL
-
-function tcocktailSurprise () {
+function vcocktailSurprise () {
 	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
     .then (function (resp) { return resp.json() })
     .then(function(data) {
@@ -284,104 +238,108 @@ function tcocktailSurprise () {
         rand_drink = getRandomNumber(0, max)        
         console.log(rand_drink)
 
-        TequillaDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-        TequillarinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-        TequillaDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
-
-        var teqID = TequillaDrinkID.innerHTML;
-
-        console.log (TequillaDrinkNAME.innerHTML)
-        console.log (TequillaDrinkICON.innerHTML)
-        console.log (teqID)
-
-        if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Tequilla") {
+        if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Vodka") {
             console.log (data.drinks[rand_drink].strInstructions)
         }
 
-        for (let i = 0; i < data.drinks.length; i++) {
+        vodkaDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
+        vodkaDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
+        vodkaDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
 
-            if (teqID === data.drinks[i].idDrink) {
-                TequillaRecipe.innerHTML = data.drinks[i].strInstructions; 
-            }
-            console.log (TequillaRecipe.innerHTML) 
-        }
+        console.log (vodkaDrinkNAME.innerHTML);
+        console.log (vodkaDrinkICON.innerHTML);
+        console.log (vodkaDrinkID.innerHTML);
 	})
 	.catch(function() {
 
 	});
 }
 
-// function fullRecipe(teqID) {
-//     fetch ('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-//     .then (function (resp) { return resp.json() })
-//     .then(function(newdata) {
+// FOR VODKA END
 
-//         for (let i = 0; i < newdata.drinks.length; i++) {
+// FOR TEQUILLA START
 
-//             if (teqID === newdata.drinks[i].idDrink) {
-//                 TequillaRecipe.innerHTML = newdata.drinks[i].strInstructions; 
-//             }
-//             console.log (TequillaRecipe.innerHTML) 
-//         }
-//     })
-// 	.catch(function() {
-//     });
-// }
+// declaring all TEQUILLA variables
+
+var alcTequilla = document.querySelector('#alcTequilla')
+var TequillaDrinkNAME = document.querySelector("#TequillaDrinkNAME")
+var TequillaDrinkICON = document.querySelector("#TequillaDrinkICON")
+var TequillaDrinkID = document.querySelector("#TequillaDrinkID")
+var TequillaRecipe = document.querySelector("#TequillaRecipe")
+
+
+alcTequilla.addEventListener("click", function (event) {
+    event.preventDefault();
+	tcocktailSurprise();
+});
+
+// CALLING RANDOM TEQUILLA COCKTAIL
+
+function tcocktailSurprise () {
+	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+    .then (function (resp) { return resp.json() })
+    .then(function(data) {
+
+        var max = data.drinks.length
+        console.log(max)
+
+        rand_drink = getRandomNumber(0, max)        
+        console.log(rand_drink)
+
+        TequillaDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
+        console.log (TequillaDrinkNAME.innerHTML);
+
+        TequillaDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
+        console.log (TequillaDrinkICON.innerHTML);
+
+        TequillaDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
+        console.log (TequillaDrinkID.innerHTML);
+
+        TequillaRecipe.innerHTML = data.drinks[rand_drink].strInstructions;
+        console.log (TequillaRecipe.innerHTML);
+	})
+	.catch(function() {
+
+	});
+}
 
 // FOR TEQUILLA END
 
 // FOR RUM START
+// declaring all RUM variables
 
-// function gcocktailSurprise () {
-// 	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-//     .then (function (resp) { return resp.json() })
-//     .then(function(data) {
+var alcRum = document.querySelector('#alcRum')
+var rumDrinkNAME = document.querySelector("#rumDrinkNAME")
+var rumDrinkICON = document.querySelector("#rumDrinkICON")
+var rumDrinkID = document.querySelector("#rumDrinkID")
+var rumRecipe = document.querySelector("rumRecipe")
 
-//         var max = data.drinks.length
-//         console.log(max)
+function rcocktailSurprise () {
+	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
+    .then (function (resp) { return resp.json() })
+    .then(function(data) {
 
-//         rand_drink = getRandomNumber(0, max)        
-//         console.log(rand_drink)
+        var max = data.drinks.length
+        console.log(max)
 
-//         ginDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-//         ginDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-//         ginDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
+        rand_drink = getRandomNumber(0, max)        
+        console.log(rand_drink)
 
-//         var ginID = ginDrinkID.innerHTML;
+        if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Rum" || "Dark Rum") {
+            console.log (data.drinks[rand_drink].strInstructions)
+        }
 
-//         console.log (ginDrinkNAME.innerHTML)
-//         console.log (ginDrinkICON.innerHTML)
-//         console.log (ginID)
+        rumDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
+        rumDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
+        rumDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
 
-//         if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Rum") {
-//             console.log (data.drinks[rand_drink].strInstructions)
-//         }
+        console.log (rumDrinkNAME.innerHTML);
+        console.log (rumDrinkICON.innerHTML);
+        console.log (rumDrinkID.innerHTML);
+	})
+	.catch(function() {
 
-//         fullRecipe(ginID)
-// 	})
-// 	.catch(function() {
-
-// 	});
-// }
-
-// function fullRecipe(ginID) {
-//     fetch ('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-//     .then (function (resp) { return resp.json() })
-//     .then(function(newdata) {
-
-//         for (let i = 0; i < newdata.drinks.length; i++) {
-
-//             if (ginID === newdata.drinks[i].idDrink) {
-//                 ginRecipe.innerHTML = newdata.drinks[i].strInstructions; 
-//             }
-//             console.log (ginRecipe.innerHTML) 
-//         }
-//     })
-// 	.catch(function() {
-//     });
-// }
+	});
+}
 
 // FOR RUM END
-
-
-
