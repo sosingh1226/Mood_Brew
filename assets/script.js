@@ -1,8 +1,3 @@
-// Navbar-Kailee
-
-
-
-
 // declaring initial variables
 var gameDay = document.querySelector('#gameDay')
 var breakUp = document.querySelector('#breakUp')
@@ -20,10 +15,7 @@ gameDay.addEventListener("click", function (event) {
     optV.style.visibility = "hidden";
     optR.style.visibility = "hidden";
 
-    var h = optG;
-    var t = optT;
-
-    coinFlipGD(h, t);
+    coinFlipGD();
 
 });
 
@@ -36,10 +28,7 @@ breakUp.addEventListener("click", function (event) {
     optV.style.visibility = "hidden";
     optR.style.visibility = "visible";
 
-    var h = optT;
-    var t = optR;
-
-    coinFlipBU(h, t);
+    coinFlipBU();
 
 });
 
@@ -52,10 +41,7 @@ codeWorks.addEventListener("click", function (event) {
     optV.style.visibility = "visible";
     optR.style.visibility = "hidden";
 
-    var h = optG;
-    var t = optV;
-
-    coinFlipCW(h, t);
+    coinFlipCW();
 
 });
 
@@ -63,7 +49,7 @@ codeWorks.addEventListener("click", function (event) {
 
 // coinflip function
 
-function coinFlipGD(h, t){
+function coinFlipGD(){
     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
         "method": "GET",
         "headers": {
@@ -74,22 +60,17 @@ function coinFlipGD(h, t){
     .then(function(resp) { return resp.json() }) 
     .then(coinResult => {
         
-        h = ginDrinkICON.innerHTML
-        t = TequillaDrinkICON.innerHTML
-
-        console.log(coinResult);
+       console.log(coinResult);
 
         if (coinResult.outcome === "Heads") {
             
             gcocktailSurprise(); 
             console.log ("Gin")
-            // console.log (ginRecipe.innerHTML)
         }
         else {
 
             tcocktailSurprise();
             console.log ("Tequilla")
-            // console.log (TequillaRecipe.innerHTML)
         }
     })
     .catch(err => {
@@ -97,7 +78,7 @@ function coinFlipGD(h, t){
     })
 }
 
-function coinFlipCW(h, t){
+function coinFlipCW(){
     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
         "method": "GET",
         "headers": {
@@ -108,9 +89,6 @@ function coinFlipCW(h, t){
     .then(function(resp) { return resp.json() }) 
     .then(coinResult => {
         
-        h = ginDrinkICON.innerHTML
-        t = vodkaDrinkICON.innerHTML
-
         console.log(coinResult);
 
         if (coinResult.outcome === "Heads") {
@@ -129,7 +107,7 @@ function coinFlipCW(h, t){
     })
 }
 
-function coinFlipBU(h, t){
+function coinFlipBU (){
     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
         "method": "GET",
         "headers": {
@@ -139,9 +117,6 @@ function coinFlipBU(h, t){
     })
     .then(function(resp) { return resp.json() }) 
     .then(coinResult => {
-        
-        h = rumDrinkICON.innerHTML
-        t = TequillaDrinkICON.innerHTML
 
         console.log(coinResult);
 
@@ -149,13 +124,11 @@ function coinFlipBU(h, t){
             
             rcocktailSurprise(); 
             console.log ("Rum")
-            // console.log (ginRecipe.innerHTML)
         }
         else {
 
             tcocktailSurprise();
             console.log ("Tequilla")
-            // console.log (TequillaRecipe.innerHTML)
         }
     })
     .catch(err => {
@@ -175,19 +148,12 @@ var ginDrinkID = document.querySelector("#ginDrinkID")
 var ginRecipe = document.querySelector("ginRecipe")
 
 
-
-alcGin.addEventListener("click", function (event) {
-    event.preventDefault();
-	gcocktailSurprise();
-});
-
 function getRandomNumber (min, max) {
     let step1 = max - min + 1;
     let step2 = Math.random() * step1;
     let result = Math.floor(step2) + min;
  
     return result;
-    // console.log (result);
 }
  
 // CALLING RANDOM GIN COCKTAIL
@@ -272,12 +238,6 @@ var TequillaDrinkICON = document.querySelector("#TequillaDrinkICON")
 var TequillaDrinkID = document.querySelector("#TequillaDrinkID")
 var TequillaRecipe = document.querySelector("#TequillaRecipe")
 
-
-alcTequilla.addEventListener("click", function (event) {
-    event.preventDefault();
-	tcocktailSurprise();
-});
-
 // CALLING RANDOM TEQUILLA COCKTAIL
 
 function tcocktailSurprise () {
@@ -317,7 +277,7 @@ var alcRum = document.querySelector('#alcRum')
 var rumDrinkNAME = document.querySelector("#rumDrinkNAME")
 var rumDrinkICON = document.querySelector("#rumDrinkICON")
 var rumDrinkID = document.querySelector("#rumDrinkID")
-var rumRecipe = document.querySelector("rumRecipe")
+var rumRecipe = document.querySelector("#rumRecipe")
 
 function rcocktailSurprise () {
 	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
