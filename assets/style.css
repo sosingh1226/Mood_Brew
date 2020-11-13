@@ -152,9 +152,7 @@ h1 {
   }
   
 /* // Flip Code */
-
 #coinFlip {
-  background-image: url(.heads);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -194,7 +192,7 @@ h1 {
     position: absolute;
     -webkit-backface-visibility: hidden;
   }
-  .heads {
+  .head {
     z-index: 100;
   }
   .tails {
@@ -202,7 +200,7 @@ h1 {
   
   }
   
-  .heads {
+  .head {
     -webkit-animation: flipHeads 3s ease-out forwards;
     -moz-animation: flipHeads 3s ease-out forwards;
       -o-animation: flipHeads 3s ease-out forwards;
