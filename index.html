@@ -12,7 +12,6 @@
       <article class="holy-grail-grid">
 
         <header class=" wrap holy-grail-header">
-        <img src="./assets/Images/img01.gif" id="img04"><br>
         <h1> Mood Brew </h1> <br>
         <h6> Brought to you by the Mongo Manciacs Group</h6>
         </header>
@@ -25,9 +24,7 @@
                 <li><a href="#javaContent"> Breakup<br><img class="thumbnail" id="breakUp" src="./assets/Images/breakup.png"></a></li>
                 <hr>
                 <li><a href="#javaContent"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/Images/codeworks.png"></a></li>
-                <hr>
-                <li><a href="#javaContent"> Wildcard<br><img  class="thumbnail" id="option4" src="./assets/Images/wildcard.PNG"></a></li>
-
+                
 
             </ul>
           </nav>
@@ -40,78 +37,65 @@
         <div class="row">
           <h3><img class="img01" src="./assets/Images/icon01.png"> Main Ingredients </h3>
         <ul>
-        <li><img class="drinkimg" id="imageGin" src="https://www.thecocktaildb.com/images/ingredients/Gin.png"> Gin</li>
-        <li><img class="drinkimg" id="imageVodka" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png">Vodka</li>
-        <li><img class="drinkimg" id="imageTequilla" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png">Tequila</li>
-        <li><img class="drinkimg" id="imageRum" src="https://www.thecocktaildb.com/images/ingredients/Rum.png">Rum</li><br>
+        <li><img class="drinkimg" id="imageGin" src="https://www.thecocktaildb.com/images/ingredients/Gin.png"></li>
+        <li><img class="drinkimg" id="imageVodka" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png"></li>
+        <li><img class="drinkimg" id="imageTequilla" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png"></li>
+        <li><img class="drinkimg" id="imageRum" src="https://www.thecocktaildb.com/images/ingredients/Rum.png"></li><br>
        </ul></div>
        <hr>
        <h3><img class="img01" src="./assets/Images/icon01.png"> Generate your drink </h3>
 
-
+        <br><br>
         <button type="button" id="saveBtn"> <a>  Save Results </a></button> || <button  id="clearHist" ><a> Clear History </a></button>
-        <br>
-        <div id=’drinkData’></div>
+        <p>
 
-        <div id="coinFlip">
-          <div class="tails"></div>
-          <div class="head"></div>
-          <button class="click">Flip the Coin</button>
-     
-      </div>
-   
-    </div>
-    </div>
+           <input type="image" src="./assets/Images/spinnigncoin.webp" name="saveForm" class="img04" class="btTxt submit" id="alcGin"/>
+
     <br>
-    <h5>Flip the Coin</h5>
-
+    <button class="click"><h5>Flip the Coin</h5></button>
     <br>
 <!-- SS -->
 
-<input type="image" src="https://placehold.it/550x550" name="saveForm" class="btTxt submit" id="alcGin"/>
-<h5>Gin</h5>
-<th class="ginDrinkdetails">
-<div id="ginDrinkNAME">
-<p id="ginDrinkICON"></p>
-<p id="ginDrinkID"></p>
-<p id="ginRecipe"></p>
-</div>
-</th>
+<input type="image" src="https://www.thecocktaildb.com/images/ingredients/Gin.png" name="saveForm" class="img04" class="btTxt submit"/>
+<h6 class="ginDrinkdetails"></h6>
+<li> Drink Name: </li><p id="ginDrinkNAME"></p>
+<li> Drink ID: </li><p id="ginDrinkID"></p>
+<li> Drink Recipe: </li><p id="ginRecipe"></p>
+<li> Drink Icon: </li><p id="ginDrinkICON"></p>
 
-<input type="imageVodka" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="alcVodka"/>
-<h5>Vodka</h5>
-<th class="vodkaDrinkdetails">
-<div id="vodkaDrinkNAME">
-<p id="vodkaDrinkICON"></p> 
-<p id="vodkaDrinkID"></p>
-<p id="vodkaRecipe"></p>
-</div>
-</th>
+<input type="imageVodka" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png" name="saveForm" class="btTxt submit" id="alcVodka"/>
+<h6 class="vodkaDrinkdetails"></h6>
+<li> Drink Name: </li><p id="vodkaDrinkNAME"></p>
+<li> Drink ID: </li><p id="vodkaDrinkID"></p>
+<li> Drink Recipe: </li><p id="vodkaRecipe"></p>
+<li> Drink Icon: </li><p id="vodkaDrinkICON"></p>
 
-<input type="imageRum" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="alcRum"/>
-<h5>Rum</h5>
-<th class="rumDrinkdetails">
-<div id="rumDrinkNAME">
-<p id="rumDrinkICON"></p>
-<p id="rumDrinkID"></p>
-<p id="rumRecipe"></p>
-</div>
-</th>
 
-<input type="imageTequilla" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="cocktailSurprise"/>
-<h5>Tequilla</h5>
-<th class="TequillaDrinkdetails">
-<div id="TequillaDrinkNAME">
-<p id="TequillaDrinkICON"></p>
-<p id="TequillaDrinkID"></p>
-<p id="TequillaRecipe"></p>
-</div>
-</th>
+<input type="imageRum" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png" name="saveForm" class="img04" class="btTxt submit" id="alcRum"/>
+<h6 class="rumDrinkdetails"></h6>
+<li> Drink Name: </li><p id="vodkaDrinkNAME"></p>
+<li> Drink ID: </li><p id="rumDrinkID"></p>
+<li> Drink Recipe: </li><p id="rumRecipe"></p>
+<li> Drink Recipe: </li><p id="rumDrinkICON"></p>
+
+
+<input type="imageTequilla" src="https://www.thecocktaildb.com/images/ingredients/Rum.png" name="saveForm" class="img04" class="btTxt submit" id="cocktailSurprise"/>
+<h6 class="TequillaDrinkdetails"></h6>
+<li> Drink Name: </li><p id="TequillaDrinkNAME"></p>
+<li> Drink ID: </li><p id="TequillaDrinkID"></p>
+<li> Drink Recipe: </li><p id="TequillaRecipe"></p>
+<li> Drink Recipe: </li><p id="TequillaDrinkICON"></p>
+
 
 <!-- SS -->
-
-
 </main>
+
+<aside class="holy-grail-right">
+  <img src="./assets/Images/img01.gif">
+</aside>
+
+
+
 
 <footer class="holy-grail-footer">
 </footer> 
