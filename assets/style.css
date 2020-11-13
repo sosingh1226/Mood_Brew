@@ -1,12 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
 body {
     background-color: black;
-    color: white;
+    color: lightyellow;
+    text-align: center;
 }
 ul {
     list-style: none;
 }
+a {
+  color: rgb(255, 187, 0);
+      text-shadow: 2px 2px 4px black;
+      font-weight: bold;
+      align-content: center;
+}
+a:hover {
+  color:  lightgoldenrodyellow;
+}
 hr {
-    border-bottom: 1px dashed whitesmoke;
+    border-bottom: 1px dashed pink;
     padding-top: 1px;
 }
 .holy-grail-grid {
@@ -19,58 +31,73 @@ hr {
     grid-gap: 20px;
     height: 100vh;
   }
-  a {
-      color: rgb(255, 187, 0);
+  li {
+      color: lightgray;
       text-shadow: 2px 2px 4px black;
       font-weight: bold;
       align-content: center;
+      display:inline;
   }
  
   .holy-grail-header {
       background-color: black;
-
+      margin: 0 auto;
+      padding-top: 25px;
 }
-
 .img01 {
-    width: 180px;
-    height: 180px;
+    width: 50px;
+    height: 60px;
 }
 .img02 {
-    width: 280px;
-    height: 350px;
+    width: 120px;
+    height: 150px;
     align-content: center;
     padding-bottom: 25px;
     padding-top: 15px;
 }
 #img04 {
-  height:50px;
-  width: 100px;
+  height:170px;
+  width: 190;
+  padding-bottom: 10px;
+}
+#img05 {
+  height: 180px;
+  width: 180px;
+}
+.drinkimg {
+  height:180px;
+  width: 200px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 h3 {
-    color: #DA70D6;
-    text-shadow: 2px 2px 4px purple;
+  color: rgb(233, 169, 86);
+  text-shadow: 2px 2px 4px black;
     font-size: 30px;
     font-weight: bold;
     padding-bottom: 20px;
+    text-align: left;
 }
 h6 {
     align-content: center;
+    color: lightgray;
+    text-shadow: 0 0 5px rgb(230, 195, 230), 0 0 10px #fff, 0 0 20px rgb(139, 7, 14), 0 0 30px #b69057, 0 0 40px rgb(110, 8, 15), 0 0 55px #a74e55, 0 0 75px #a013a5;
+    font-family: Italianno;
+    font-size: 30px;
+
 }
-.txt02 {
-    color: #4169E1;
+h1 {
     font-size: 100px;
-    text-shadow: 4px 4px 6px #800080;
-}
-.txt01 {
-    color: #DA70D6;
-    font-size: 100px;
-    text-shadow: 2px 2px 4px #800080;
+    font-family: 'futura';
+    color: whitesmoke;
+    text-shadow: 0 0 5px rgb(230, 195, 230), 0 0 10px #fff, 0 0 20px rgb(139, 7, 14), 0 0 30px #b69057, 0 0 40px rgb(110, 8, 15), 0 0 55px #a74e55, 0 0 75px #a013a5;
+    text-align: left;
 }
   .holy-grail-left,
   .holy-grail-middle {
-      background-color: black;
+      background-color:#800000;
       padding: 1rem;
-      border: 1px solid #DDA0DD;
+      border: 1px solid #ca2121;
   }
   .holy-grail-right,
   .holy-grail-footer {
@@ -118,120 +145,9 @@ h6 {
     }
   }
   
-  /* @media screen and (max-width: 60em) {
-    .right-nav {
-      -ms-grid-row: 4;
-          grid-row-start: 4;
-      -ms-grid-column: 1;
-          grid-column-start: 1;
-      grid-column-end: 4;
-    }
-  } */
-  
   .holy-grail-footer {
     -ms-grid-column: 1;
         grid-column-start: 1;
     grid-column-end: 4;
   }
   
-
-  NEON LOGO  
-  $color1: magenta;
-$color2: purple;
-
-.text-effect {
-  overflow: hidden;
-  position: relative;
-  
-  // The blend modes mute the colors, so let's bump them up
-  filter: contrast(110%) brightness(190%);
-}
-
-.neon {
-  position: relative;
-  
-  // Only works on a black background, sorry
-  background: black;
-  
-  // The actual text inside the div is superfluous, only data-text matters. The text is added so you can easily edit the preview
-  color: transparent;
-  
-  &::before,
-  &::after {
-    // Add two copies of the text on their own layer
-    content: attr(data-text);
-    
-    // White, so we can paint them later
-    color: white;
-    
-    // And blur them to create the neon effect with the blend-mode below
-    filter: blur(0.02em);
-    
-    position: absolute;
-    top: 0; left: 0;
-    pointer-events: none;
-  }
-  
-  // Set the top copy to difference. This creates the knock-out effect with a bit of glow
-  &::after {
-    mix-blend-mode: difference;
-  }
-}
-
-// Position our two effect layers
-.gradient,
-.spotlight {
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  pointer-events: none;
-  z-index: 10;  
-}
-
-// Add the colors
-.gradient {
-  background: linear-gradient(45deg, $color1, $color2);
-  
-  // Multiply mode will paint only the white text
-  mix-blend-mode: multiply;
-}
-
-.spotlight {
-  animation: light 5s infinite linear;
-  
-  // These are the lights, color-dodge needs a black bg for optimum effect
-  background: 
-    radial-gradient(circle, white, transparent 25%) 0 0 / 25% 25%, 
-    radial-gradient(circle, white, black 25%) 50% 50% / 12.5% 12.5%;
-  top: -100%; left: -100%;
-  
-  // Color dodge gives the lights that shimmer effect
-  mix-blend-mode: color-dodge;
-}
-
-@keyframes light {
-  100% {
-    transform: translate3d(50%, 50%, 0);
-  }
-}
-
-//=== Pen styling, ignore
-
-// Style text
-.neon {
-  font: 700 220px 'Lato', sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0;
-  
-  &:focus { outline: none; border: 1px dotted white; }
-}
-
-// Center everything
-body {
-  background: black;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}

@@ -9,110 +9,106 @@
 </head>
     <body>
 
-        <article class="holy-grail-grid">
+      <article class="holy-grail-grid">
 
-            <header class=" wrap holy-grail-header">
-            <img src="./assets/img01.gif" id="img04"><br>
-            <h1> Mood Brew </h1> <br>
-            <h6> Brought to you by the Mongo Manciacs Group</h6>
-            </header>
-    
-            <nav class="holy-grail-left">
-               <h3><img class="img01" src="./assets/icon01.png"> Mood </h3>
-                <ul>
-                    <li><a href="#javaContent"> Game day <br><img class="thumbnail" id="gameDay" src="./assets/gameday.png"></a></li>
-                    <hr>
-                    <li><a href="#javaContent"> Breakup<br><img class="thumbnail" id="breakUp" src="./assets/breakup.png"></a></li>
-                    <hr>
-                    <li><a href="#javaContent"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/codeworks.png"></a></li>
-                    <hr>
-                    <li><a href="#javaContent"> Wildcard<br><img  class="thumbnail" id="option4" src="./assets/wildcard.PNG"></a></li>
+        <header class=" wrap holy-grail-header">
+        <img src="./assets/Images/img01.gif" id="img04"><br>
+        <h1> Mood Brew </h1> <br>
+        <h6> Brought to you by the Mongo Manciacs Group</h6>
+        </header>
 
-    
-                </ul>
-              </nav>
-
-        <main class="holy-grail-middle">
-            <h3><img class="img01" src="./assets/icon01.png"> Description</h3>
-            A simulation that allows you to brew a special drink recipe based on a specific mood. Select your mood on the left and the coin image below to reveal your drink for the day. Cheers!
-
-            <hr>
-            <div class="row">
-              <h3><img class="img01" src="./assets/icon01.png"> Main Ingredients </h3>
+        <nav class="holy-grail-left">
+           <h3><img class="img01" src="./assets/Images/icon01.png"> Mood </h3>
             <ul>
-            <li><img class="drinkimg" id="gameday" src="https://www.thecocktaildb.com/images/ingredients/Gin.png"> Gin</li>
-            <li><img class="drinkimg" id="breakUp" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png">Vodka</li>
-            <li><img class="drinkimg" id="codeWorks" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png">Tequila</li>
-            <li><img class="drinkimg" id="option4" src="https://www.thecocktaildb.com/images/ingredients/Rum.png">Rum</li><br>
-           </ul></div>
-           <hr>
-           <h3><img class="img01" src="./assets/icon01.png"> Generate your drink </h3>
+                <li><a href="#javaContent"> Game day <br><img class="thumbnail" id="gameDay" src="./assets/Images/gameday.png"></a></li>
+                <hr>
+                <li><a href="#javaContent"> Breakup<br><img class="thumbnail" id="breakUp" src="./assets/Images/breakup.png"></a></li>
+                <hr>
+                <li><a href="#javaContent"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/Images/codeworks.png"></a></li>
+                <hr>
+                <li><a href="#javaContent"> Wildcard<br><img  class="thumbnail" id="option4" src="./assets/Images/wildcard.PNG"></a></li>
 
 
-            <button type="button" id="saveBtn"> <a>  Save Results </a></button> || <button  id="clearHist" ><a> Clear History </a></button>
-            <br>
-            <div id=’drinkData’></div>
+            </ul>
+          </nav>
 
-           
-            <div id=“coinFlip”>
-            <div class=“side-a”></div>
-            <div id=“#coinFlip.tails”></div>
-            <div class=“side-b”></div>
-            <div id=“#coinFlip.heads”></div>
-        </div>
-        </div>
+    <main class="holy-grail-middle">
+        <h3><img class="img01" src="./assets/Images/icon01.png"> Description</h3>
+        A simulation that allows you to brew a special drink recipe based on a specific mood. Select your mood on the left and the coin image below to reveal your drink for the day. Cheers!
+
+        <hr>
+        <div class="row">
+          <h3><img class="img01" src="./assets/Images/icon01.png"> Main Ingredients </h3>
+        <ul>
+        <li><img class="drinkimg" id="gameday" src="https://www.thecocktaildb.com/images/ingredients/Gin.png"> Gin</li>
+        <li><img class="drinkimg" id="breakUp" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png">Vodka</li>
+        <li><img class="drinkimg" id="codeWorks" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png">Tequila</li>
+        <li><img class="drinkimg" id="option4" src="https://www.thecocktaildb.com/images/ingredients/Rum.png">Rum</li><br>
+       </ul></div>
+       <hr>
+       <h3><img class="img01" src="./assets/Images/icon01.png"> Generate your drink </h3>
+
+
+        <button type="button" id="saveBtn"> <a>  Save Results </a></button> || <button  id="clearHist" ><a> Clear History </a></button>
         <br>
-        <h5>Flip the Coin</h5>
+        <div id=’drinkData’></div>
 
-        <br>
+       
+        <div id=“coinFlip”>
+        <div class=“side-a”></div>
+        <div id=“#coinFlip.tails”></div>
+        <div class=“side-b”></div>
+        <div id=“#coinFlip.heads”></div>
+    </div>
+    </div>
+    <br>
+    <h5>Flip the Coin</h5>
+
+    <br>
 <!-- SS -->
 <div class="row">
-  <img src="" id="alcGin">
-  <h5>Gin</h5>
-  <li> <img class="thumbnail" src="https://www.thecocktaildb.com/images/media/drink/3qpv121504366699.jpg"> <p id="ginDrinkNAME"></p>
-  <li> Drink Name:</li> <h5 id="ginDrinkNAME"></p>
-  <li> Drink Name:</li> <h5 id="ginDrinkID"></p>
-  <li> Drink Name:</li> <h5 id="ginRecipe"></p>
+<img src="" id="alcGin">
+<h5>Gin</h5>
+<li> <img class="thumbnail" src="https://www.thecocktaildb.com/images/media/drink/3qpv121504366699.jpg" id="img05"> 
+<p id="ginDrinkIcon"></p>
+<li> Drink Name:</li> <h5 id="ginDrinkNAME"></p>
+<li> Drink Name:</li> <h5 id="ginDrinkID"></p>
+<li> Drink Name:</li> <h5 id="ginRecipe"></p>
 </p>
 
 <br>
-  
-  <input type="image" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="vcocktailSurprise"/>
-  <h5>Vodka</h5>
-  <th class="vodkaDrinkdetails">-----no use
-    <div id="vodkaDrinkNAME">
-      <p id="vodkaDrinkICON"></p>
-      <p id="vodkaDrinkID"></p>
-      <p id="vodkaRecipe"></p>
-    </div>
-  </th>
-  <input type="image" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="alcRum"/>
-  <h5>Rum</h5>
-  <th class="rumDrinkdetails">-----no use
-    <div id="rumDrinkNAME">
-      <p id="rumDrinkICON"></p>
-      <p id="rumDrinkID"></p>
-      <p id="rumRecipe"></p>
-    </div>
-  </th>
-  <input type="image" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="cocktailSurprise"/>
-  <h5>Tequilla</h5>
-  <th class="TequillaDrinkdetails">-----no use
-    <div id="TequillaDrinkNAME">
-      <p id="TequillaDrinkICON"></p>
-      <p id="TequillaDrinkID"></p>
-      <p id="TequillaRecipe"></p>
-    </div>
-  </th>
+
+<input type="image" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="vcocktailSurprise"/>
+<h5>Vodka</h5>
+<th class="vodkaDrinkdetails">-----no use
+<div id="vodkaDrinkNAME">
+  <p id="vodkaDrinkICON"></p>
+  <p id="vodkaDrinkID"></p>
+  <p id="vodkaRecipe"></p>
+</div>
+</th>
+<input type="image" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="alcRum"/>
+<h5>Rum</h5>
+<th class="rumDrinkdetails">-----no use
+<div id="rumDrinkNAME">
+  <p id="rumDrinkICON"></p>
+  <p id="rumDrinkID"></p>
+  <p id="rumRecipe"></p>
+</div>
+</th>
+<input type="image" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="cocktailSurprise"/>
+<h5>Tequilla</h5>
+<th class="TequillaDrinkdetails">-----no use
+<div id="TequillaDrinkNAME">
+  <p id="TequillaDrinkICON"></p>
+  <p id="TequillaDrinkID"></p>
+  <p id="TequillaRecipe"></p>
+</div>
+</th>
 </div> 
 <!-- SS -->
 
-
-
        </p>
-
-
-
 
         </main>
 
