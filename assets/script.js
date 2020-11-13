@@ -1,3 +1,8 @@
+// Navbar-Kailee
+
+
+
+
 // declaring initial variables
 var gameDay = document.querySelector('#gameDay')
 var breakUp = document.querySelector('#breakUp')
