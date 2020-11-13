@@ -1,345 +1,129 @@
-// declaring initial variables
-var gameDay = document.querySelector('#gameDay')
-var breakUp = document.querySelector('#breakUp')
-var codeWorks = document.querySelector('#codeWorks')
-var optG = document.querySelector('#imageGin')
-var optV = document.querySelector('#imageVodka')
-var optR = document.querySelector('#imageRum')
-var optT = document.querySelector('#imageTequilla')
-
-// game day event listener
-gameDay.addEventListener("click", function (event) {
-    event.preventDefault();
-    optG.style.visibility = "visible";
-    optT.style.visibility = "visible";
-    optV.style.visibility = "hidden";
-    optR.style.visibility = "hidden";
-
-    var h = optG;
-    var t = optT;
-
-    coinFlipGD(h, t);
-
-});
-
-// breakup event listener
-
-breakUp.addEventListener("click", function (event) {
-    event.preventDefault();
-    optG.style.visibility = "hidden";
-    optT.style.visibility = "visible";
-    optV.style.visibility = "hidden";
-    optR.style.visibility = "visible";
-
-    var h = optT;
-    var t = optR;
-
-    coinFlipBU(h, t);
-
-});
-
-// my code works event listeners
-
-codeWorks.addEventListener("click", function (event) {
-    event.preventDefault();
-    optG.style.visibility = "visible";
-    optT.style.visibility = "hidden";
-    optV.style.visibility = "visible";
-    optR.style.visibility = "hidden";
-
-    var h = optG;
-    var t = optV;
-
-    coinFlipCW(h, t);
-
-});
-
-// }
-
-// coinflip function
-
-function coinFlipGD(h, t){
-    fetch("https://coin-flip1.p.rapidapi.com/headstails", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
-            "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
-        }
-    })
-    .then(function(resp) { return resp.json() }) 
-    .then(coinResult => {
-        
-        h = ginDrinkICON.innerHTML
-        t = TequillaDrinkICON.innerHTML
-
-        console.log(coinResult);
-
-        if (coinResult.outcome === "Heads") {
-            
-            gcocktailSurprise(); 
-            console.log ("Gin")
-            // console.log (ginRecipe.innerHTML)
-        }
-        else {
-
-            tcocktailSurprise();
-            console.log ("Tequilla")
-            // console.log (TequillaRecipe.innerHTML)
-        }
-    })
-    .catch(err => {
-        console.error(err);
-    })
-}
-
-function coinFlipCW(h, t){
-    fetch("https://coin-flip1.p.rapidapi.com/headstails", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
-            "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
-        }
-    })
-    .then(function(resp) { return resp.json() }) 
-    .then(coinResult => {
-        
-        h = ginDrinkICON.innerHTML
-        t = vodkaDrinkICON.innerHTML
-
-        console.log(coinResult);
-
-        if (coinResult.outcome === "Heads") {
-            
-            gcocktailSurprise(); 
-            console.log ("Gin")
-        }
-        else {
-
-            vcocktailSurprise();
-            console.log ("Vodka")
-        }
-    })
-    .catch(err => {
-        console.error(err);
-    })
-}
-
-function coinFlipBU(h, t){
-    fetch("https://coin-flip1.p.rapidapi.com/headstails", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
-            "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
-        }
-    })
-    .then(function(resp) { return resp.json() }) 
-    .then(coinResult => {
-        
-        h = rumDrinkICON.innerHTML
-        t = TequillaDrinkICON.innerHTML
-
-        console.log(coinResult);
-
-        if (coinResult.outcome === "Heads") {
-            
-            rcocktailSurprise(); 
-            console.log ("Rum")
-            // console.log (ginRecipe.innerHTML)
-        }
-        else {
-
-            tcocktailSurprise();
-            console.log ("Tequilla")
-            // console.log (TequillaRecipe.innerHTML)
-        }
-    })
-    .catch(err => {
-        console.error(err);
-    })
-}
-
-// COIN FLIP END
- 
-// FOR GIN START
-// declaring GIN variables
-
-var alcGin = document.querySelector('#alcGin')
-var ginDrinkNAME = document.querySelector("#ginDrinkNAME")
-var ginDrinkICON = document.querySelector("#ginDrinkICON")
-var ginDrinkID = document.querySelector("#ginDrinkID")
-var ginRecipe = document.querySelector("ginRecipe")
-
-
-
-alcGin.addEventListener("click", function (event) {
-    event.preventDefault();
-	gcocktailSurprise();
-});
-
-function getRandomNumber (min, max) {
-    let step1 = max - min + 1;
-    let step2 = Math.random() * step1;
-    let result = Math.floor(step2) + min;
- 
-    return result;
-    // console.log (result);
-}
- 
-// CALLING RANDOM GIN COCKTAIL
-
-function gcocktailSurprise () {
-	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-    .then (function (resp) { return resp.json() })
-    .then(function(data) {
-
-        var max = data.drinks.length
-        console.log(max)
-
-        rand_drink = getRandomNumber(0, max)        
-        console.log(rand_drink)
-
-        if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Gin") {
-            console.log (data.drinks[rand_drink].strInstructions)
-        }
-
-        ginDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-        ginDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-        ginDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
-
-        console.log (ginDrinkNAME.innerHTML);
-        console.log (ginDrinkICON.innerHTML);
-        console.log (ginDrinkID.innerHTML);
-
-	})
-	.catch(function() {
-
-	});
-}
-
-// FOR GIN END
-
-// FOR VODKA START
-// declaring all VODKA variables
-
-var alcVodka = document.querySelector('#alcVodka')
-var vodkaDrinkNAME = document.querySelector("#vodkaDrinkNAME")
-var vodkaDrinkICON = document.querySelector("#vodkaDrinkICON")
-var vodkaDrinkID = document.querySelector("#vodkaDrinkID")
-var vodkaRecipe = document.querySelector("vodkaRecipe")
-
-function vcocktailSurprise () {
-	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-    .then (function (resp) { return resp.json() })
-    .then(function(data) {
-
-        var max = data.drinks.length
-        console.log(max)
-
-        rand_drink = getRandomNumber(0, max)        
-        console.log(rand_drink)
-
-        if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Vodka") {
-            console.log (data.drinks[rand_drink].strInstructions)
-        }
-
-        vodkaDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-        vodkaDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-        vodkaDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
-
-        console.log (vodkaDrinkNAME.innerHTML);
-        console.log (vodkaDrinkICON.innerHTML);
-        console.log (vodkaDrinkID.innerHTML);
-	})
-	.catch(function() {
-
-	});
-}
-
-// FOR VODKA END
-
-// FOR TEQUILLA START
-
-// declaring all TEQUILLA variables
-
-var alcTequilla = document.querySelector('#alcTequilla')
-var TequillaDrinkNAME = document.querySelector("#TequillaDrinkNAME")
-var TequillaDrinkICON = document.querySelector("#TequillaDrinkICON")
-var TequillaDrinkID = document.querySelector("#TequillaDrinkID")
-var TequillaRecipe = document.querySelector("#TequillaRecipe")
-
-
-alcTequilla.addEventListener("click", function (event) {
-    event.preventDefault();
-	tcocktailSurprise();
-});
-
-// CALLING RANDOM TEQUILLA COCKTAIL
-
-function tcocktailSurprise () {
-	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-    .then (function (resp) { return resp.json() })
-    .then(function(data) {
-
-        var max = data.drinks.length
-        console.log(max)
-
-        rand_drink = getRandomNumber(0, max)        
-        console.log(rand_drink)
-
-        TequillaDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-        console.log (TequillaDrinkNAME.innerHTML);
-
-        TequillaDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-        console.log (TequillaDrinkICON.innerHTML);
-
-        TequillaDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
-        console.log (TequillaDrinkID.innerHTML);
-
-        TequillaRecipe.innerHTML = data.drinks[rand_drink].strInstructions;
-        console.log (TequillaRecipe.innerHTML);
-	})
-	.catch(function() {
-
-	});
-}
-
-// FOR TEQUILLA END
-
-// FOR RUM START
-// declaring all RUM variables
-
-var alcRum = document.querySelector('#alcRum')
-var rumDrinkNAME = document.querySelector("#rumDrinkNAME")
-var rumDrinkICON = document.querySelector("#rumDrinkICON")
-var rumDrinkID = document.querySelector("#rumDrinkID")
-var rumRecipe = document.querySelector("rumRecipe")
-
-function rcocktailSurprise () {
-	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-    .then (function (resp) { return resp.json() })
-    .then(function(data) {
-
-        var max = data.drinks.length
-        console.log(max)
-
-        rand_drink = getRandomNumber(0, max)        
-        console.log(rand_drink)
-
-        if (data.drinks[rand_drink].strIngredient1 || data.drinks[rand_drink].strIngredient2 || data.drinks[rand_drink].strIngredient3 || data.drinks[rand_drink].strIngredient4 === "Rum" || "Dark Rum") {
-            console.log (data.drinks[rand_drink].strInstructions)
-        }
-
-        rumDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-        rumDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-        rumDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
-
-        console.log (rumDrinkNAME.innerHTML);
-        console.log (rumDrinkICON.innerHTML);
-        console.log (rumDrinkID.innerHTML);
-	})
-	.catch(function() {
-
-	});
-}
-
-// FOR RUM END
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> PROJECT 01 - MOOD BREW | MONGO MANIACS </title>
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+    <body>
+
+      <article class="holy-grail-grid">
+
+        <header class=" wrap holy-grail-header">
+        <img src="./assets/Images/img01.gif" id="img04"><br>
+        <h1> Mood Brew </h1> <br>
+        <h6> Brought to you by the Mongo Manciacs Group</h6>
+        </header>
+
+        <nav class="holy-grail-left">
+           <h3><img class="img01" src="./assets/Images/icon01.png"> Mood </h3>
+            <ul>
+                <li><a href="#javaContent"> Game day <br><img class="thumbnail" id="gameDay" src="./assets/Images/gameday.png"></a></li>
+                <hr>
+                <li><a href="#javaContent"> Breakup<br><img class="thumbnail" id="breakUp" src="./assets/Images/breakup.png"></a></li>
+                <hr>
+                <li><a href="#javaContent"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/Images/codeworks.png"></a></li>
+                <hr>
+                <li><a href="#javaContent"> Wildcard<br><img  class="thumbnail" id="option4" src="./assets/Images/wildcard.PNG"></a></li>
+
+
+            </ul>
+          </nav>
+
+    <main class="holy-grail-middle">
+        <h3><img class="img01" src="./assets/Images/icon01.png"> Description</h3>
+        A simulation that allows you to brew a special drink recipe based on a specific mood. Select your mood on the left and the coin image below to reveal your drink for the day. Cheers!
+
+        <hr>
+        <div class="row">
+          <h3><img class="img01" src="./assets/Images/icon01.png"> Main Ingredients </h3>
+        <ul>
+        <li><img class="drinkimg" id="imageGin" src="https://www.thecocktaildb.com/images/ingredients/Gin.png"> Gin</li>
+        <li><img class="drinkimg" id="imageVodka" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png">Vodka</li>
+        <li><img class="drinkimg" id="imageTequilla" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png">Tequila</li>
+        <li><img class="drinkimg" id="imageRum" src="https://www.thecocktaildb.com/images/ingredients/Rum.png">Rum</li><br>
+       </ul></div>
+       <hr>
+       <h3><img class="img01" src="./assets/Images/icon01.png"> Generate your drink </h3>
+
+
+        <button type="button" id="saveBtn"> <a>  Save Results </a></button> || <button  id="clearHist" ><a> Clear History </a></button>
+        <br>
+        <div id=’drinkData’></div>
+
+       
+        <div id=“coinFlip”>
+        <div class=“side-a”></div>
+        <div id=“#coinFlip.tails”></div>
+        <div class=“side-b”></div>
+        <div id=“#coinFlip.heads”></div>
+    </div>
+    </div>
+    <br>
+    <h5>Flip the Coin</h5>
+
+    <br>
+<!-- SS -->
+
+<input type="image" src="https://placehold.it/550x550" name="saveForm" class="btTxt submit" id="alcGin"/>
+<h5>Gin</h5>
+<th class="ginDrinkdetails">
+<div id="ginDrinkNAME">
+<p id="ginDrinkICON"></p>
+<p id="ginDrinkID"></p>
+<p id="ginRecipe"></p>
+</div>
+</th>
+
+<input type="imageVodka" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="alcVodka"/>
+<h5>Vodka</h5>
+<th class="vodkaDrinkdetails">
+<div id="vodkaDrinkNAME">
+<p id="vodkaDrinkICON"></p> 
+<p id="vodkaDrinkID"></p>
+<p id="vodkaRecipe"></p>
+</div>
+</th>
+
+<input type="imageRum" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="alcRum"/>
+<h5>Rum</h5>
+<th class="rumDrinkdetails">
+<div id="rumDrinkNAME">
+<p id="rumDrinkICON"></p>
+<p id="rumDrinkID"></p>
+<p id="rumRecipe"></p>
+</div>
+</th>
+
+<input type="imageTequilla" src="https://placehold.it/180x180" name="saveForm" class="btTxt submit" id="cocktailSurprise"/>
+<h5>Tequilla</h5>
+<th class="TequillaDrinkdetails">
+<div id="TequillaDrinkNAME">
+<p id="TequillaDrinkICON"></p>
+<p id="TequillaDrinkID"></p>
+<p id="TequillaRecipe"></p>
+</div>
+</th>
+
+<!-- SS -->
+
+
+</main>
+
+<footer class="holy-grail-footer">
+</footer> 
+  
+</article>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>$(document).foundation();</script>
+<script src="./assets/script.js"></script>
+
+</body>
+</html>
+
+
+
