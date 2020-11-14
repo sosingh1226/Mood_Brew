@@ -206,7 +206,7 @@ function gcocktailSurprise () {
         console.log (ginDrinkICON.innerHTML);
         console.log (ginDrinkID.innerHTML);
 
-        foodSurprise ();
+        foodSurprise();
 
 	})
 	.catch(function() {
@@ -256,7 +256,7 @@ function vcocktailSurprise () {
         console.log (vodkaDrinkICON.innerHTML);
         console.log (vodkaDrinkID.innerHTML);
 
-        foodSurprise ();
+        foodSurprise();
     })
 	.catch(function() {
 
@@ -307,7 +307,7 @@ function tcocktailSurprise () {
 
         document.querySelector('.tequillaImg').src = data.drinks[rand_drink].strDrinkThumb;
 
-        foodSurprise ();
+        foodSurprise();
 	})
 	.catch(function() {
 
@@ -354,7 +354,7 @@ function rcocktailSurprise () {
         console.log (rumDrinkICON.innerHTML);
         console.log (rumDrinkID.innerHTML);
 
-        foodSurprise ();
+        foodSurprise();
 	})
 	.catch(function() {
 
@@ -365,36 +365,30 @@ function rcocktailSurprise () {
 
 // FOOD PAIRING
 
-var foodNAME = document.querySelector('#foodNAME')
-var foodRecipe = document.querySelector('#foodRecipe')
-var foodICON = document.querySelector('#foodICON')
-var foodLink = document.querySelector('#foodLink')
-
+var foodNAME = document.querySelector("#foodNAME")
+var foodRecipe = document.querySelector("#foodRecipe")
+var foodICON = document.querySelector("#foodICON")
+var foodLink = document.querySelector("#foodLink")
 
 function foodSurprise () {
 	fetch('https://www.themealdb.com/api/json/v1/1/random.php')
     .then (function (resp) { return resp.json() })
     .then(function(data) {
 
-        // var max = data.drinks.length
-        // console.log(max)
+        foodNAME.innerHTML = data.meals[0].strMeal;
+        foodRecipe.innerHTML = data.meals[0].strInstructions;
+        foodICON.innerHTML = data.meals[0].strMealThumb;
+        foodICON.style.visibility = "hidden";
 
-        // rand_food = getRandomNumber(0, max)        
-        // console.log(rand_food)
-
-        foodNAME.innerHTML = data.meals.strMeal;
-        foodRecipe.innerHTML = data.meals.strInstructions;
-        foodICON.innerHTML = data.meals.strMealThumb;
-        foodLink.innerHTML = data.meals.strYoutube
-
-
-        document.querySelector(".foodImg").src = data.meals.strMealThumb;
+        foodLink.innerHTML = data.meals[0].strYoutube;
+        
+        document.querySelector(".foodImg").src = data.meals[0].strMealThumb;
 
         console.log (foodNAME.innerHTML);
         console.log (foodRecipe.innerHTML);
         console.log (foodICON.innerHTML);
         console.log (foodLink.innerHTML);
-	})
+    })
 	.catch(function() {
 
 	});
