@@ -225,9 +225,10 @@ var vodkaDrinkICON = document.querySelector('#vodkaDrinkICON')
 var vodkaDrinkID = document.querySelector('#vodkaDrinkID')
 var vodkaRecipe = document.querySelector('#vodkaRecipe')
 
-    var rand_alphabet = getRandomString(1)
-    var api_url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + rand_alphabet
-	fetch(api_url)
+
+ // CALLING RANDOM VODKA COCKTAIL
+function vcocktailSurprise () {   
+    fetch(api_url)
     .then (function (resp) { return resp.json() })
     .then(function(data) {
 
@@ -256,11 +257,11 @@ var vodkaRecipe = document.querySelector('#vodkaRecipe')
         console.log (vodkaDrinkID.innerHTML);
 
         foodSurprise ();
-	})
+    })
 	.catch(function() {
 
 	});
-
+}
 // FOR VODKA END
 
 // FOR TEQUILLA START
@@ -325,7 +326,6 @@ var rumDrinkID = document.querySelector('#rumDrinkID')
 var rumRecipe = document.querySelector('#rumRecipe')
 
 function rcocktailSurprise () {
-
     var rand_alphabet = getRandomString(1)
     var api_url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + rand_alphabet
 	fetch(api_url)
@@ -382,9 +382,9 @@ function foodSurprise () {
         // rand_food = getRandomNumber(0, max)        
         // console.log(rand_food)
 
-        foodNAME.innerHTML = data.meals.strMeal
-        foodRecipe.innerHTML = data.meals.strInstructions
-        foodICON.innerHTML = data.meals.strMealThumb
+        foodNAME.innerHTML = data.meals.strMeal;
+        foodRecipe.innerHTML = data.meals.strInstructions;
+        foodICON.innerHTML = data.meals.strMealThumb;
         foodLink.innerHTML = data.meals.strYoutube
 
 
