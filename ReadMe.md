@@ -49,6 +49,9 @@ JAVASCRIPT
 ## Example ScreenShot of Outcome after Drink is Generated
 ![screenshot of drink outcome screen](./assets/Images/example_output_for_code_works.JPG)
 
+## Example ScreenShot of Local Storage
+ ![screenshot of local storage](./assets/Images/localstorage.PNG)
+
 ## Link to Deployed Application
 
 [Click Here!](https://kaileesmith.github.io/Mood_Brew/)
