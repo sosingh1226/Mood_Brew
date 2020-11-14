@@ -18,27 +18,34 @@
         </header>
 <!-- Mood Options -->
         <nav class="holy-grail-left">
-          <h3><img class="img01" src="./assets/Images/icon01.png"> Mood </h3>
-            <ul>
-                <li>
-                  <a href="#javaContent"> Game day <br><img class="thumbnail" id="gameDay" src="./assets/Images/gameday.png"></a>
-                </li>
-                <hr>
-                <li>
-                  <a href="#javaContent"> Breakup<br><img class="thumbnail" id="breakUp" src="./assets/Images/breakup.png"></a>
-                </li>
-                <hr>
-                <li>
-                  <a href="#javaContent"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/Images/codeworks.png"></a>
-                </li>
-            </ul>
+          <h3><img class="img01" src="./assets/Images/icon01.png"> Description</h3>
+          A simulation that allows you to brew a special drink recipe based on a specific mood. Select your mood on the top and see below 
+          for your randomly generated drink and meal for the day! Cheers!
+          <hr>
+
+          <!-- Save and Clear for locale storage -->
+          <!-- <button type="button" id="saveBtn"> <a>  Save Results </a></button> || <button  id="clearHist" ><a> Clear History </a></button> -->
+          <br>
+          
+
           </nav>
 <!-- Description -->
     <main class="holy-grail-middle">
-        <h3>
-          <img class="img01" src="./assets/Images/icon01.png"> Description</h3>
-        A simulation that allows you to brew a special drink recipe based on a specific mood. Select your mood on the top and see below for your randomly generated drink and meal for the day! Cheers!
+    <h3><img class="img01" src="./assets/Images/icon01.png"> Pick your mood</h3>
+    <br>
+     <table>
+        <td> 
+        <a href="#mncont">Game day<br><img class="thumbnail" id="gameDay" src="./assets/Images/gameday.png"></a>
+        </td>
+        <td>
+          <a href="#mncont"> Breakup<br><img class="thumbnail" id="breakUp"  src="./assets/Images/breakup.png"></a>
+          </td>
+          <td>
+            <a href="#mncont"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/Images/codeworks.png"></a>
+            </td>
+        </tr></table>
 
+<br>
         <!-- Alcohol Base options -->
       <hr>
         <div class="row">
@@ -60,17 +67,14 @@
             </ul>
         </div>
       <hr>
-      <h3><img class="img01" src="./assets/Images/icon01.png"> Generate your drink </h3>
-
-        <!-- Save and Clear for locale storage -->
-        <button type="button" id="saveBtn"> <a>  Save Results </a></button> || <button  id="clearHist" ><a> Clear History </a></button>
+      <h3><img class="img01" src="./assets/Images/icon01.png"> Generate your drink and food pairing</h3>
         <p>
         <!-- Output for drink and food -->
           <h3 class="popresult2" id="drinkSel"></h3>
           <div class="row">
             <div class="dOption"></div>
-              <h4>Drink Option:</h4>
-              <!-- IDs for generating Drink Options -->
+            <h2 id="mncont">Drink Option</h2>
+            <!-- IDs for generating Drink Options -->
                       <!-- GIN -->
             <p id="ginDrinkNAME"></p>
             <p id="ginDrinkID"></p>
@@ -99,11 +103,10 @@
             <p id="TequillaRecipe"></p>
             <p id="TequillaDrinkICON"></p>
             <img class="tequillaImg" src="" width="250" height="350">
-
-          </div>
-          <br>
+           </div>
+          <br><br>
           <div class="row">
-            <h4 id="fOption">Food Option:</h4>
+            <h2 id="fOption">Food Option</h2>
           <br>
               <div class="picture">
                 <!-- Food -->
