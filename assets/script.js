@@ -52,40 +52,6 @@ codeWorks.addEventListener("click", function (event) {
 
 // coinflip function
 
-// function coinFlipGD(){
-//     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
-//             "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
-//         }
-//     })
-//     .then(function(resp) { return resp.json() }) 
-//     .then(coinResult => {
-
-//         clickCoin.addEventListener("click", function (event) {
-//             event.preventDefault();
-            
-//             console.log(coinResult.outcome);
-
-//             if (coinResult.outcome === "Heads") {
-            
-//                 gcocktailSurprise(); 
-//                 console.log ("Gin")
-//             }
-//             else {
-    
-//                 tcocktailSurprise();
-//                 console.log ("Tequilla")
-//             }
-//         });
-    
-//     })
-//     .catch(err => {
-//         console.error(err);
-//     })
-// }
-
 function coinFlipGD(){
     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
         "method": "GET",
@@ -119,40 +85,6 @@ function coinFlipGD(){
     })
 }
 
-// function coinFlipCW(){
-//     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
-//             "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
-//         }
-//     })
-//     .then(function(resp) { return resp.json() }) 
-//     .then(coinResult => {
-
-//         clickCoin.addEventListener("click", function (event) {
-//             event.preventDefault();
-            
-//             console.log(coinResult.outcome);
-
-//             if (coinResult.outcome === "Heads") {
-            
-//                 gcocktailSurprise(); 
-//                 console.log ("Gin")
-//             }
-//             else {
-    
-//                 vcocktailSurprise();
-//                 console.log ("Vodka")
-//             }
-//         });
-        
-//     })
-//     .catch(err => {
-//         console.error(err);
-//     })
-// }
-
 function coinFlipCW(){
     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
         "method": "GET",
@@ -182,39 +114,6 @@ function coinFlipCW(){
     })
 }
 
-// function coinFlipBU (){
-//     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-key": "87793f4121msha09b62ad07f5ca0p1e0594jsn2ed17993aa0e",
-//             "x-rapidapi-host": "coin-flip1.p.rapidapi.com"
-//         }
-//     })
-//     .then(function(resp) { return resp.json() }) 
-//     .then(coinResult => {
-
-//         clickCoin.addEventListener("click", function (event) {
-//             event.preventDefault();
-            
-//             console.log(coinResult.outcome);
-
-//             if (coinResult.outcome === "Heads") {
-            
-//                 rcocktailSurprise(); 
-//                 console.log ("Rum")
-//             }
-//             else {
-    
-//                 tcocktailSurprise();
-//                 console.log ("Tequilla")
-//             }
-//         });
-
-//     })
-//     .catch(err => {
-//         console.error(err);
-//     })
-// }
 
 function coinFlipBU (){
     fetch("https://coin-flip1.p.rapidapi.com/headstails", {
@@ -251,10 +150,10 @@ function coinFlipBU (){
 // declaring GIN variables
 
 var alcGin = document.querySelector('#alcGin')
-var ginDrinkNAME = document.querySelector("#ginDrinkNAME")
-var ginDrinkICON = document.querySelector("#ginDrinkICON")
-var ginDrinkID = document.querySelector("#ginDrinkID")
-var ginRecipe = document.querySelector("#ginRecipe")
+var ginDrinkNAME = document.querySelector('#ginDrinkNAME')
+var ginDrinkICON = document.querySelector('#ginDrinkICON')
+var ginDrinkID = document.querySelector('#ginDrinkID')
+var ginRecipe = document.querySelector('#ginRecipe')
 
 
 function getRandomNumber (min, max) {
@@ -266,7 +165,7 @@ function getRandomNumber (min, max) {
 }
  
 function getRandomString(length) {
-    var randomChars = 'abcdefghijklmnopqrstuvwxyz';
+    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var result = '';
     for ( var i = 0; i < length; i++ ) {
         result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
@@ -278,8 +177,8 @@ function getRandomString(length) {
 function gcocktailSurprise () {
     var rand_alphabet = getRandomString(1)
     var api_url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + rand_alphabet
-    console.log (rand_alphabet)
-    console.log(api_url)
+    // console.log (rand_alphabet)
+    // console.log(api_url)
 	fetch(api_url)
     .then (function (resp) { return resp.json() })
     .then(function(data) {
@@ -301,11 +200,13 @@ function gcocktailSurprise () {
 
         ginDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
 
-        document.querySelector(".ginImg").src = data.drinks[rand_drink].strDrinkThumb;
+        document.querySelector('.ginImg').src = data.drinks[rand_drink].strDrinkThumb;
 
         console.log (ginDrinkNAME.innerHTML);
         console.log (ginDrinkICON.innerHTML);
         console.log (ginDrinkID.innerHTML);
+
+        foodSurprise ();
 
 	})
 	.catch(function() {
@@ -319,13 +220,14 @@ function gcocktailSurprise () {
 // declaring all VODKA variables
 
 var alcVodka = document.querySelector('#alcVodka')
-var vodkaDrinkNAME = document.querySelector("#vodkaDrinkNAME")
-var vodkaDrinkICON = document.querySelector("#vodkaDrinkICON")
-var vodkaDrinkID = document.querySelector("#vodkaDrinkID")
-var vodkaRecipe = document.querySelector("#vodkaRecipe")
+var vodkaDrinkNAME = document.querySelector('#vodkaDrinkNAME')
+var vodkaDrinkICON = document.querySelector('#vodkaDrinkICON')
+var vodkaDrinkID = document.querySelector('#vodkaDrinkID')
+var vodkaRecipe = document.querySelector('#vodkaRecipe')
 
-function vcocktailSurprise () {
-	fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
+    var rand_alphabet = getRandomString(1)
+    var api_url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + rand_alphabet
+	fetch(api_url)
     .then (function (resp) { return resp.json() })
     .then(function(data) {
 
@@ -352,11 +254,12 @@ function vcocktailSurprise () {
         console.log (vodkaDrinkNAME.innerHTML);
         console.log (vodkaDrinkICON.innerHTML);
         console.log (vodkaDrinkID.innerHTML);
+
+        foodSurprise ();
 	})
 	.catch(function() {
 
 	});
-}
 
 // FOR VODKA END
 
@@ -365,10 +268,10 @@ function vcocktailSurprise () {
 // declaring all TEQUILLA variables
 
 var alcTequilla = document.querySelector('#alcTequilla')
-var TequillaDrinkNAME = document.querySelector("#TequillaDrinkNAME")
-var TequillaDrinkICON = document.querySelector("#TequillaDrinkICON")
-var TequillaDrinkID = document.querySelector("#TequillaDrinkID")
-var TequillaRecipe = document.querySelector("#TequillaRecipe")
+var TequillaDrinkNAME = document.querySelector('#TequillaDrinkNAME')
+var TequillaDrinkICON = document.querySelector('#TequillaDrinkICON')
+var TequillaDrinkID = document.querySelector('#TequillaDrinkID')
+var TequillaRecipe = document.querySelector('#TequillaRecipe')
 
 // CALLING RANDOM TEQUILLA COCKTAIL
 
@@ -401,7 +304,9 @@ function tcocktailSurprise () {
         TequillaRecipe.innerHTML = data.drinks[rand_drink].strInstructions;
         console.log (TequillaRecipe.innerHTML);
 
-        document.querySelector(".tequillaImg").src = data.drinks[rand_drink].strDrinkThumb;
+        document.querySelector('.tequillaImg').src = data.drinks[rand_drink].strDrinkThumb;
+
+        foodSurprise ();
 	})
 	.catch(function() {
 
@@ -414,15 +319,16 @@ function tcocktailSurprise () {
 // declaring all RUM variables
 
 var alcRum = document.querySelector('#alcRum')
-var rumDrinkNAME = document.querySelector("#rumDrinkNAME")
-var rumDrinkICON = document.querySelector("#rumDrinkICON")
-var rumDrinkID = document.querySelector("#rumDrinkID")
-var rumRecipe = document.querySelector("#rumRecipe")
+var rumDrinkNAME = document.querySelector('#rumDrinkNAME')
+var rumDrinkICON = document.querySelector('#rumDrinkICON')
+var rumDrinkID = document.querySelector('#rumDrinkID')
+var rumRecipe = document.querySelector('#rumRecipe')
 
 function rcocktailSurprise () {
 
-    // fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php')
+    var rand_alphabet = getRandomString(1)
+    var api_url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + rand_alphabet
+	fetch(api_url)
     .then (function (resp) { return resp.json() })
     .then(function(data) {
 
@@ -447,6 +353,8 @@ function rcocktailSurprise () {
         console.log (rumDrinkNAME.innerHTML);
         console.log (rumDrinkICON.innerHTML);
         console.log (rumDrinkID.innerHTML);
+
+        foodSurprise ();
 	})
 	.catch(function() {
 
@@ -456,6 +364,12 @@ function rcocktailSurprise () {
 // FOR RUM END
 
 // FOOD PAIRING
+
+var foodNAME = document.querySelector('#foodNAME')
+var foodRecipe = document.querySelector('#foodRecipe')
+var foodICON = document.querySelector('#foodICON')
+var foodLink = document.querySelector('#foodLink')
+
 
 function foodSurprise () {
 	fetch('https://www.themealdb.com/api/json/v1/1/random.php')
@@ -468,18 +382,18 @@ function foodSurprise () {
         // rand_food = getRandomNumber(0, max)        
         // console.log(rand_food)
 
-        data.meals.strMeal
+        foodNAME.innerHTML = data.meals.strMeal
+        foodRecipe.innerHTML = data.meals.strInstructions
+        foodICON.innerHTML = data.meals.strMealThumb
+        foodLink.innerHTML = data.meals.strYoutube
 
-        rumDrinkNAME.innerHTML = data.drinks[rand_drink].strDrink;
-        rumDrinkICON.innerHTML = data.drinks[rand_drink].strDrinkThumb;
-        rumDrinkICON.style.visibility = "hidden";
-        rumDrinkID.innerHTML = data.drinks[rand_drink].idDrink;
 
-        document.querySelector(".rumImg").src = data.drinks[rand_drink].strDrinkThumb;
+        document.querySelector(".foodImg").src = data.meals.strMealThumb;
 
-        console.log (rumDrinkNAME.innerHTML);
-        console.log (rumDrinkICON.innerHTML);
-        console.log (rumDrinkID.innerHTML);
+        console.log (foodNAME.innerHTML);
+        console.log (foodRecipe.innerHTML);
+        console.log (foodICON.innerHTML);
+        console.log (foodLink.innerHTML);
 	})
 	.catch(function() {
 
