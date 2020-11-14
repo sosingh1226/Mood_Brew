@@ -154,6 +154,7 @@ var ginDrinkNAME = document.querySelector('#ginDrinkNAME')
 var ginDrinkICON = document.querySelector('#ginDrinkICON')
 var ginDrinkID = document.querySelector('#ginDrinkID')
 var ginRecipe = document.querySelector('#ginRecipe')
+let ginObj = JSON.parse(localStorage.getItem("gin"));
 
 
 function getRandomNumber (min, max) {
@@ -208,7 +209,14 @@ function gcocktailSurprise () {
 
         foodSurprise();
 
-	})
+    let drinkObj = {
+            name: data.drinks[rand_drink].strDrink,
+            id: data.drinks[rand_drink].idDrink,
+            recipe: data.drinks[rand_drink].strInstructions,
+            icon: data.drinks[rand_drink].strDrinkThumb,
+     };  
+    localStorage.setItem ("gin", JSON.stringify(drinkObj))
+    })
 	.catch(function() {
 
 	});
@@ -224,6 +232,7 @@ var vodkaDrinkNAME = document.querySelector('#vodkaDrinkNAME')
 var vodkaDrinkICON = document.querySelector('#vodkaDrinkICON')
 var vodkaDrinkID = document.querySelector('#vodkaDrinkID')
 var vodkaRecipe = document.querySelector('#vodkaRecipe')
+let ginObjV = JSON.parse(localStorage.getItem("vodka"));
 
 
  // CALLING RANDOM VODKA COCKTAIL
@@ -256,7 +265,15 @@ function vcocktailSurprise () {
         console.log (vodkaDrinkICON.innerHTML);
         console.log (vodkaDrinkID.innerHTML);
 
-        foodSurprise();
+        foodSurprise ();
+
+        let drinkObj = {
+            name: data.drinks[rand_drink].strDrink,
+            id: data.drinks[rand_drink].idDrink,
+            recipe: data.drinks[rand_drink].strInstructions,
+            icon: data.drinks[rand_drink].strDrinkThumb,
+     };  
+    localStorage.setItem ("vodka", JSON.stringify(drinkObj))
     })
 	.catch(function() {
 
@@ -273,6 +290,7 @@ var TequillaDrinkNAME = document.querySelector('#TequillaDrinkNAME')
 var TequillaDrinkICON = document.querySelector('#TequillaDrinkICON')
 var TequillaDrinkID = document.querySelector('#TequillaDrinkID')
 var TequillaRecipe = document.querySelector('#TequillaRecipe')
+let ginObjT= JSON.parse(localStorage.getItem("tequilla"));
 
 // CALLING RANDOM TEQUILLA COCKTAIL
 
@@ -307,7 +325,16 @@ function tcocktailSurprise () {
 
         document.querySelector('.tequillaImg').src = data.drinks[rand_drink].strDrinkThumb;
 
-        foodSurprise();
+        foodSurprise ();
+
+        let drinkObj = {
+            name: data.drinks[rand_drink].strDrink,
+            id: data.drinks[rand_drink].idDrink,
+            recipe: data.drinks[rand_drink].strInstructions,
+            icon: data.drinks[rand_drink].strDrinkThumb,
+     };  
+    localStorage.setItem ("tequilla", JSON.stringify(drinkObj))
+
 	})
 	.catch(function() {
 
@@ -324,6 +351,7 @@ var rumDrinkNAME = document.querySelector('#rumDrinkNAME')
 var rumDrinkICON = document.querySelector('#rumDrinkICON')
 var rumDrinkID = document.querySelector('#rumDrinkID')
 var rumRecipe = document.querySelector('#rumRecipe')
+let ginObjR = JSON.parse(localStorage.getItem("rum"));
 
 function rcocktailSurprise () {
     var rand_alphabet = getRandomString(1)
@@ -354,7 +382,16 @@ function rcocktailSurprise () {
         console.log (rumDrinkICON.innerHTML);
         console.log (rumDrinkID.innerHTML);
 
-        foodSurprise();
+        foodSurprise ();
+
+        let drinkObj = {
+            name: data.drinks[rand_drink].strDrink,
+            id: data.drinks[rand_drink].idDrink,
+            recipe: data.drinks[rand_drink].strInstructions,
+            icon: data.drinks[rand_drink].strDrinkThumb,
+     };  
+    localStorage.setItem ("rum", JSON.stringify(drinkObj))
+
 	})
 	.catch(function() {
 
@@ -388,8 +425,26 @@ function foodSurprise () {
         console.log (foodRecipe.innerHTML);
         console.log (foodICON.innerHTML);
         console.log (foodLink.innerHTML);
-    })
+
+	})
 	.catch(function() {
 
 	});
 }
+
+
+
+// SAVING TO LOCAL STORAGE
+document.querySelector(".saveBtn").addEventListener("click", function(){
+    console.log("i was clicked");
+    let prevSiblings = saveBtn.previousElementSibling;
+    console.log(prevSiblings);
+})
+
+document.querySelector("/clearHist").addEventListener("click", function(){
+
+})
+console.log(ginObj);
+console.log(ginObjV);
+console.log(ginObjR);
+console.log(ginObjT);

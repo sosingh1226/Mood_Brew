@@ -4,50 +4,67 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> PROJECT 01 - MOOD BREW | MONGO MANIACS </title>
+    <!-- Foundation -->
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="./assets/style.css">
 </head>
     <body>
-      <div id=“coinFlipClick”>
       <article class="holy-grail-grid">
-
+<!-- Header -->
         <header class=" wrap holy-grail-header">
         <h1> Mood Brew </h1> <br>
         <h6> Brought to you by the Mongo Manciacs Group</h6>
         </header>
-
+<!-- Mood Options -->
         <nav class="holy-grail-left">
-           <h3><img class="img01" src="./assets/Images/icon01.png"> Mood </h3>
+          <h3><img class="img01" src="./assets/Images/icon01.png"> Mood </h3>
             <ul>
-                <li><a href="#javaContent"> Game day <br><img class="thumbnail" id="gameDay" src="./assets/Images/gameday.png"></a></li>
+                <li>
+                  <a href="#javaContent"> Game day <br><img class="thumbnail" id="gameDay" src="./assets/Images/gameday.png"></a>
+                </li>
                 <hr>
-                <li><a href="#javaContent"> Breakup<br><img class="thumbnail" id="breakUp" src="./assets/Images/breakup.png"></a></li>
+                <li>
+                  <a href="#javaContent"> Breakup<br><img class="thumbnail" id="breakUp" src="./assets/Images/breakup.png"></a>
+                </li>
                 <hr>
-                <li><a href="#javaContent"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/Images/codeworks.png"></a></li>
-                
-
+                <li>
+                  <a href="#javaContent"> My Code works<br><img class="thumbnail" id="codeWorks" src="./assets/Images/codeworks.png"></a>
+                </li>
             </ul>
           </nav>
-
+<!-- Description -->
     <main class="holy-grail-middle">
         <h3><img class="img01" src="./assets/Images/icon01.png"> Description</h3>
         A simulation that allows you to brew a special drink recipe based on a specific mood. Select your mood on the left and the coin image below to reveal your drink for the day. Cheers!
 
-        <hr>
+        <!-- Alcohol Base options -->
+      <hr>
         <div class="row">
           <h3><img class="img01" src="./assets/Images/icon01.png"> Main Ingredients </h3>
-        <ul>
-        <li><img class="drinkimg" id="imageGin" src="https://www.thecocktaildb.com/images/ingredients/Gin.png"></li>
-        <li><img class="drinkimg" id="imageVodka" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png"></li>
-        <li><img class="drinkimg" id="imageTequilla" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png"></li>
-        <li><img class="drinkimg" id="imageRum" src="https://www.thecocktaildb.com/images/ingredients/Rum.png"></li><br>
-       </ul></div>
-       <hr>
-       <h3><img class="img01" src="./assets/Images/icon01.png"> Generate your drink </h3>
-
+            <ul>
+              <li>
+                <img class="drinkimg" id="imageGin" src="https://www.thecocktaildb.com/images/ingredients/Gin.png">
+              </li>
+              <li>
+                <img class="drinkimg" id="imageVodka" src="https://www.thecocktaildb.com/images/ingredients/Vodka.png">
+              </li>
+              <li>
+                <img class="drinkimg" id="imageTequilla" src="https://www.thecocktaildb.com/images/ingredients/Tequila.png">
+              </li>
+              <li>
+                <img class="drinkimg" id="imageRum" src="https://www.thecocktaildb.com/images/ingredients/Rum.png">
+              </li>
+              <br>
+            </ul>
+        </div>
+      <hr>
+      <h3><img class="img01" src="./assets/Images/icon01.png"> Generate your drink </h3>
         <br><br>
+        <!-- Save and Clear for locale storage -->
         <button type="button" id="saveBtn"> <a>  Save Results </a></button> || <button  id="clearHist" ><a> Clear History </a></button>
         <p>
+<<<<<<< HEAD
            <input type="image" src="./assets/Images/spinnigncoin.webp" name="saveForm" class="img04" class="btTxt submit" id="clickCoin"/>
 
            <br>
@@ -58,66 +75,123 @@
 <!-- SS -->
 
 
+=======
+          <br>
+        <!-- Output for drink and food -->
+          <h4>Drink Base:</h4>
+          <h3 class="popresult2" id="drinkSel"></h3>
+          <br>
+          <div class="row">
+            <div class="picture1"></div>
+              <h5>Drink Option:</h5>
+                      <!-- GIN -->
+            <p id="ginDrinkNAME"></p>
+            <p id="ginDrinkID"></p>
+            <p id="ginRecipe"></p>
+            <p id="ginDrinkICON"></p>
+            <img class="ginImg" src="" width="250" height="350"> 
+              <!-- Vodka -->
+            <h6 class="vodkaDrinkdetails"></h6>
+            <p id="vodkaDrinkNAME"></p>
+            <p id="vodkaDrinkID"></p>
+            <p id="vodkaRecipe"></p>
+            <p id="vodkaDrinkICON"></p>
+            <img class="vodkaImg" src="" width="250" height="350">
+            <!-- Rum -->
+            <h6 class="rumDrinkdetails"></h6>
+            <p id="vodkaDrinkNAME"></p>
+            <p id="rumDrinkID"></p>
+            <p id="rumRecipe"></p>
+            <p id="rumDrinkICON"></p>
+            <img class="rumImg" src="" width="250" height="350">
+
+            <!-- Tequila -->
+            <h6 class="TequillaDrinkdetails"></h6>
+            <p id="TequillaDrinkNAME"></p>
+            <p id="TequillaDrinkID"></p>
+            <p id="TequillaRecipe"></p>
+            <p id="TequillaDrinkICON"></p>
+            <img class="tequillaImg" src="" width="250" height="350">
+
+          </div>
+          <br>
+          <div class="row">
+            <h5 id="fOption">Food Option:</h5>
+              <div class="picture">
+                <!-- Food -->
+          <h6 class="foodDetails"></h6>
+          <p id="foodNAME"></p>
+          <p id="foodRecipe"></p>
+          <p id="foodLink"></p>
+          <p id="foodICON"></p>
+          <img class="foodImg" src="" width="250" height="350">
+              </div>
+          </div>
+        </p>
+
+        <!-- IDs for generating Drink Options -->
+        <!-- GIN
+>>>>>>> 9f9dbdf0d33a3c72741ff9ece8f81304c139f241
 <p id="ginDrinkNAME"></p>
 <p id="ginDrinkID"></p>
 <p id="ginRecipe"></p>
 <p id="ginDrinkICON"></p>
-<img class="ginImg" src="" width="250" height="350">
+<img class="ginImg" src="" width="250" height="350"> -->
 
-
-<h6 class="vodkaDrinkdetails"></h6>
+<!-- Vodka -->
+<!-- <h6 class="vodkaDrinkdetails"></h6>
 <p id="vodkaDrinkNAME"></p>
 <p id="vodkaDrinkID"></p>
 <p id="vodkaRecipe"></p>
 <p id="vodkaDrinkICON"></p>
-<img class="vodkaImg" src="" width="250" height="350">
+<img class="vodkaImg" src="" width="250" height="350"> -->
 
-
-<h6 class="rumDrinkdetails"></h6>
+<!-- Rum -->
+<!-- <h6 class="rumDrinkdetails"></h6>
 <p id="vodkaDrinkNAME"></p>
 <p id="rumDrinkID"></p>
 <p id="rumRecipe"></p>
 <p id="rumDrinkICON"></p>
-<img class="rumImg" src="" width="250" height="350">
+<img class="rumImg" src="" width="250" height="350"> -->
 
-
-<h6 class="TequillaDrinkdetails"></h6>
+<!-- Tequila -->
+<!-- <h6 class="TequillaDrinkdetails"></h6>
 <p id="TequillaDrinkNAME"></p>
 <p id="TequillaDrinkID"></p>
 <p id="TequillaRecipe"></p>
 <p id="TequillaDrinkICON"></p>
-<img class="tequillaImg" src="" width="250" height="350">
+<img class="tequillaImg" src="" width="250" height="350"> -->
 
-<h6 class="foodDetails"></h6>
+<!-- Food -->
+<!-- <h6 class="foodDetails"></h6>
 <p id="foodNAME"></p>
 <p id="foodRecipe"></p>
 <p id="foodLink"></p>
 <p id="foodICON"></p>
-<img class="foodImg" src="" width="250" height="350">
+<img class="foodImg" src="" width="250" height="350"> -->
 
-
-<!-- SS -->
 </main>
 
+<!-- Side GIF detail -->
 <aside class="holy-grail-right">
   <img src="./assets/Images/img01.gif">
 </aside>
 
 
 
-
+<!-- Footer -->
 <footer class="holy-grail-footer">
 </footer> 
   
 </article>
 
+<!-- JQUERY -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Foundation -->
 <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
 <script>$(document).foundation();</script>
+<!-- Javascript -->
 <script src="./assets/script.js"></script>
 
 </body>
 </html>
-
-
-
