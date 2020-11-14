@@ -1,5 +1,5 @@
 # Mood Brew
-For our project, we have created a drink generator based on your mood. There are 3 mood options on the left side of our interface. When a user selects a mood category, then they will receive 2 alcohol options catered to that specific mood. They will then be able to do a coin flip to randomly select their type of alcohol. Once alcohol is selected a randomly generated drink option appears.
+For our project, we have created a drink and food generator based on your mood. There are 3 mood options on the top of our interface. When a user selects a mood category, they will then receive 2 alcohol options catered to that specific mood. A coin flip API will randomly select their type of alcohol. Once alcohol is selected a randomly generated drink and food option appears.
 
 ## User Story
 ```
@@ -40,17 +40,16 @@ HTML
 CSS 
 FOUNDATION
 JAVASCRIPT
-JQUERY
 
 ```
 
 
 ## Example ScreenShot of Start Screen
-![screenshot of start screen]()
+![screenshot of start screen](./assets/Images/StartScreen.JPG)
 
 ## Example ScreenShot of Outcome after Drink is Generated
-![screenshot of drink outcome screen]()
+![screenshot of drink outcome screen](./assets/Images/example_output_for_code_works.JPG)
 
 ## Link to Deployed Application
 
-[Click Here!](https://)
+[Click Here!](https://kaileesmith.github.io/Mood_Brew/)
