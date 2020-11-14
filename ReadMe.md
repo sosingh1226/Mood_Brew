@@ -50,7 +50,7 @@ JAVASCRIPT
 ![screenshot of drink outcome screen](./assets/Images/example_output_for_code_works.JPG)
 
 ## Example ScreenShot of Local Storage
- ![screenshot of local storage](./assets/Images/localstorage.PNG)
+ ![screenshot of local storage](./assets/Images/localstorage.png)
 
 ## Link to Deployed Application
 
