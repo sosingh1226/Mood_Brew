@@ -435,16 +435,16 @@ function foodSurprise () {
 
 
 // SAVING TO LOCAL STORAGE
-document.querySelector(".saveBtn").addEventListener("click", function(){
-    console.log("i was clicked");
-    let prevSiblings = saveBtn.previousElementSibling;
-    console.log(prevSiblings);
-})
+// document.querySelector(".saveBtn").addEventListener("click", function(){
+//     console.log("i was clicked");
+//     let prevSiblings = saveBtn.previousElementSibling;
+//     console.log(prevSiblings);
+// })
 
-document.querySelector("/clearHist").addEventListener("click", function(){
+// document.querySelector("/clearHist").addEventListener("click", function(){
 
-})
-console.log(ginObj);
-console.log(ginObjV);
-console.log(ginObjR);
-console.log(ginObjT);
+// })
+// console.log(ginObj);
+// console.log(ginObjV);
+// console.log(ginObjR);
+// console.log(ginObjT);
