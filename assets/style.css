@@ -151,3 +151,24 @@ h1 {
     grid-column-end: 4;
   }
   
+#foodNAME{
+  font-weight: bold;
+  font-size: large;
+}
+
+#vodkaDrinkNAME{
+  font-weight: bold;
+  font-size: large;
+}
+#rumDrinkNAME{
+  font-weight: bold;
+  font-size: large;
+}
+#ginDrinkNAME{
+  font-weight: bold;
+  font-size: large;
+}
+#TequillaDrinkNAME{
+  font-weight: bold;
+  font-size: large;
+}

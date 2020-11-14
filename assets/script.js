@@ -63,7 +63,7 @@ function coinFlipGD(){
     .then(function(resp) { return resp.json() }) 
     .then(coinResult => {
         
-       console.log(coinResult);
+    console.log(coinResult);
 
         if (coinResult.outcome === "Heads") {
             
